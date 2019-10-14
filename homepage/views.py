@@ -21,16 +21,16 @@ from PIL import  Image
 
 # Create your views here.
 
-try:
-    #get cnn and fc pathsgit
-    mods = face_model.objects.filter(id=1)
-    cnn = mods[0].cnn_model
-    fc = mods[0].fc_model
+# try:
+#     #get cnn and fc pathsgit
+#     mods = face_model.objects.filter(id=1)
+#     cnn = mods[0].cnn_model
+#     fc = mods[0].fc_model
 
-    #instatiat the face detector
-    face_dec = test_model(cnn, fc)
-except:
-    print('ml model not found')
+#     #instatiat the face detector
+#     face_dec = test_model(cnn, fc)
+# except:
+#     print('ml model not found')
 
 #index page
 def index(request):
@@ -116,6 +116,13 @@ def authusr(request):
         image2 = inst.image2
 
         try:
+            #get cnn and fc pathsgit
+            mods = face_model.objects.filter(id=1)
+            cnn = mods[0].cnn_model
+            fc = mods[0].fc_model
+
+            #instatiat the face detector
+            face_dec = test_model(cnn, fc)
             #load images
             face_dec.load_imgs(image1, image2)
 
