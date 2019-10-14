@@ -21,14 +21,16 @@ from PIL import  Image
 
 # Create your views here.
 
+try:
+    #get cnn and fc pathsgit
+    mods = face_model.objects.filter(id=1)
+    cnn = mods[0].cnn_model
+    fc = mods[0].fc_model
 
-#get cnn and fc pathsgit
-mods = face_model.objects.filter(id=1)
-cnn = mods[0].cnn_model
-fc = mods[0].fc_model
-
-#instatiat the face detector
-face_dec = test_model(cnn, fc)
+    #instatiat the face detector
+    face_dec = test_model(cnn, fc)
+except:
+    print('ml model not found')
 
 #index page
 def index(request):
@@ -113,41 +115,45 @@ def authusr(request):
         image1 = inst.image1
         image2 = inst.image2
 
-        #load images
-        face_dec.load_imgs(image1, image2)
+        try:
+            #load images
+            face_dec.load_imgs(image1, image2)
 
-        #predict
-        accuracy, prediction = face_dec.predict()
+            #predict
+            accuracy, prediction = face_dec.predict()
 
-        prediction = prediction[0][0]
+            prediction = prediction[0][0]
 
-        accuracy = accuracy[0][0] if prediction == 0 else accuracy[0][1]
-        
-        #saving prediction and accuracy
-        inst.prediction = prediction
-        inst.api_accuracy = accuracy
-        inst.save()
-        
-        if prediction == 0:
-            return render(request, 'homepage/signin.html',{'data':
-                                                                    json.dumps(
-                                                                        {
-                                                                            'login' : 1, 
-                                                                            'username' : request.POST["username"],
-                                                                            'prediction' : 0
-                                                                        })
-            })
+            accuracy = accuracy[0][0] if prediction == 0 else accuracy[0][1]
             
-        else:
-            return render(request, 'testapp/index.html', {'data':
-                                                                    json.dumps(
-                                                                        {
-                                                                            'login' : 1, 
-                                                                            'username' : request.POST["username"],
-                                                                            'prediction' : 1
-                                                                        })
-    
-            })
+            #saving prediction and accuracy
+            inst.prediction = prediction
+            inst.api_accuracy = accuracy
+            inst.save()
+            
+            if prediction == 0:
+                return render(request, 'homepage/signin.html',{'data':
+                                                                        json.dumps(
+                                                                            {
+                                                                                'login' : 1, 
+                                                                                'username' : request.POST["username"],
+                                                                                'prediction' : 0
+                                                                            })
+                })
+                
+            else:
+                return render(request, 'testapp/index.html', {'data':
+                                                                        json.dumps(
+                                                                            {
+                                                                                'login' : 1, 
+                                                                                'username' : request.POST["username"],
+                                                                                'prediction' : 1
+                                                                            })
+        
+                }
+        )
+        except:
+            print('ml model is not loaded')
 
     except:
             return render(request, 'homepage/signin.html', {'data':
