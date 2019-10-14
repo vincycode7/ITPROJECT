@@ -1,0 +1,248 @@
+/* signin.html */
+.sch-nm2{
+    font-weight: bolder;
+    margin-top: 10px;
+    margin-bottom: 35px;
+    color: rgba(133, 6, 158, 0.863);
+}
+
+.log-con-s{
+    border-radius: 50%;
+    max-width: 70px;
+    height: 80px;
+    padding: 0px;
+    margin: 2% auto 0% auto;
+}
+.sgn-sgn{
+    margin: 0px auto 0px auto;
+    width:35%;
+    border: 10px whitesmoke;
+    border-radius: 7px;
+    background: linear-gradient(to right, rgba(95, 24, 109, 0.747), rgba(148, 53, 148, 0.822));
+}
+.sgn-txt{
+    margin: 30px 50px;
+    margin-bottom: 10px;
+    text-overflow: clip;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: whitesmoke;
+    font-weight: bolder;
+}
+
+.sgn-frm{
+    display: block;
+}
+.sgn-inp{
+    border-radius: 6px;;
+    display: block;
+    width: 80%;
+    margin: 20px auto;
+    height: 3vw;
+}
+
+.modcls:hover{
+    /* color: whitesmoke; */
+    background: rgb(255, 255, 222);
+}
+
+#modal1{
+    display: none;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding-top: 35px;
+}
+
+.modal-cont{
+    background-color: whitesmoke;
+    margin:4% auto;
+    width: 40%;
+    height: 70vh;
+    border-radius: 15px;
+    box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2), 0 7px 20px 0 rgba(0,0,0,0.17);
+    animation: modal1open;
+    animation-duration: 1.5s;
+}
+
+.aut-h{
+    width: 100%;
+}
+.modal-hdr h2{
+    width: 100%;
+}
+
+.modal-hdr{
+    padding-top: 15px;
+    border-bottom: solid 1px;  
+    text-align: center;
+}
+
+.clseBtnc{
+    position: relative;
+    color: #ccc;
+    float: right;
+    font-size: 26px;
+    top: -11px;
+    right: 15px;
+}
+
+.clseBtnc:hover, .clseBtnc:focus{
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal1-bdy{
+    width: 100%;
+    height: 48vh;
+    padding-top: 10px;
+}
+
+.img-aut{
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.vid-con{
+    position: relative;
+    margin: auto 5px;
+    width: 60%;
+    height: 100%;
+    box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2), 0 7px 20px 0 rgba(0,0,0,0.17);
+}
+.vid-vid{
+    position: relative;
+    width: 100%;
+    height: 85%;
+}
+
+
+.capbtn{
+    border: none;
+    position: relative;
+    width:50%;
+    height: 13%;
+    margin: auto;
+    margin-top: 3px;
+    margin-bottom: 12px;
+}
+
+
+#capbt{
+    position: relative;
+    border-radius: 10px;
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2), 0 7px 20px 0 rgba(0,0,0,0.17);
+}
+
+.img-con{
+    position: relative;
+    margin: auto 5px;
+    width: 40%;
+    height: 100%;
+    box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2), 0 7px 20px 0 rgba(0,0,0,0.17);
+}
+
+.result{
+    width: 100%;
+    height: 100%;
+}
+
+.img2{
+    margin-top: 7px;
+    width: 100%;
+    height: 45vh;
+}
+
+.api-imgs{
+    display: none;
+}
+
+.modal1-ftr{
+    width: 100%;
+}
+.modal1-ftr-frm{
+    width: 100%;
+    height: 100%;
+}
+.aut-sub{
+    display: block;
+    position: relative;
+    left: 200px;
+    top: 12px;
+    border: none;
+    background: rgb(13, 13, 228);
+    min-width: 48px;
+    min-height: 48px;
+    width: 22%;
+    color: whitesmoke;
+    padding: auto;
+    border-radius: 10px;
+    box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2), 0 7px 20px 0 rgba(0,0,0,0.17);
+}
+
+#modal2{
+    display: none;
+    position: fixed;
+    z-index: 110;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding-top: 35px;
+}
+#failed-auth{
+    background-color: whitesmoke;
+    padding: 5px;
+    margin:20% auto;
+    width: 20%;
+    height: 16vh;
+    border-radius: 5px;
+    box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2), 0 7px 20px 0 rgba(0,0,0,0.17);
+    animation: modal1open;
+    animation-duration: 1.5s;
+    text-align: center;
+    font-weight: bold;
+}
+
+.fnl-auth{
+    font-weight: bolder;
+}
+.fnl-btn{
+    width: 30%;
+    height: 34px;
+    color: black;    
+}
+
+#retry{
+    border-radius: 7px;
+    background-color: rgba(24, 248, 24, 0.753);
+}
+
+#quit{
+    border-radius: 7px;
+    background-color: rgba(248, 24, 24, 0.753);
+}
+
+#retry:hover{
+    color: rgb(218, 203, 203);  
+}
+
+#quit:hover{
+    color: rgb(255, 255, 255);  
+}
+
+@keyframes modal1open{
+    from{opacity: 0}
+    to{opacity:1}
+}

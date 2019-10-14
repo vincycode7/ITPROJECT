@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title> Home </title>
+        <link rel="stylesheet" type="text/css" href="{% static 'homepage/css/bootstrap.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'homepage/css/style.css' %}">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+    </head>
+
+    <body>
+        <div class="container">
+
+            <nav class="row nav-lst">
+                <ul>
+                    <li> <a href="{% url 'homepage:home' %}"> Home </a> </li>
+                    <li> <a href="{% url 'testapp:upload' %}"> Test App </a> </li>
+                    <li> <a href="{% url 'homepage:signin' %}"> Help </a> </li>
+                </ul>
+            </nav>
+
+            <div class="row log-con">
+                <img class="col-md-1 img-circle logo" src="{% static 'homepage/images/uniben_logo' %}">
+            </div>
+            
+            <p class="row text-center sch-nm"> UNIBEN </p>
+
+            <div class="row log-inf">
+                <div class="boo">
+                    <h3 class="row"> Sign in to Write your Examination </h3>
+                </div>
+                
+                <div class=" boo">
+                        <a href="{% url 'homepage:signin' %}"><input onclick="" class="sgn-idx" type="button" value="Sign In"></a>
+                </div>
+                
+            </div>
+            
+            <div class="image">
+                <img src="{% static 'homepage/images/images.jpeg' %}" class="clip">
+            </div>
+
+        </div>
+    </body>
+</html>

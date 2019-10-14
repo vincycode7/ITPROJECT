@@ -1,0 +1,114 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title> Sign in </title>
+        <link rel="stylesheet" type="text/css" href="{% static 'homepage/css/bootstrap.min.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'homepage/css/style.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'homepage/css/signin.css' %}">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+    </head>
+
+    <body>
+
+        <input type="hidden" id="myVar" name="variable" value="{{ data }}">
+
+        <div class="container">
+
+            <div class="image">
+                <img src="{% static 'homepage/images/images.jpeg' %}" class="clip">
+            </div>
+
+            <nav class="row nav-lst">
+                <div>
+                    <ul>
+                        <li> <a href="{% url 'homepage:home' %}"> Home </a> </li>
+                        <li> <a href="{% url 'homepage:home' %}"> Test App </a> </li>
+                        <li> <a href="{% url 'homepage:signin' %}"> Help </a> </li>
+                    </ul>
+                </div>
+
+            </nav>
+
+            <div class="row log-con-s">
+                <img class="col-md-1 img-circle logo" src="{% static 'homepage/images/uniben_logo' %}">
+            </div>
+            
+            <p class="row text-center sch-nm2"> UNIBEN </p>
+
+            <div class="row sgn-sgn">
+                
+                <h4 class="text-center sgn-txt"> Login To Write Your Examination </h4>
+                
+                <form action="{% url 'homepage:signin' %}" class="sgn-frm" id="form-s" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+
+                    <input class="sgn-inp" id='inp1' type="text" placeholder="Username" name="username" required/>
+
+                    <input class="sgn-inp" id='inp2' type="password" placeholder="password" name="password" required/>
+                    
+                    <input class="sgn-inp modcls" id="modal-btn" type="submit" value="Log In" required/>     
+                </form>
+                
+                <div id="modal1">
+                    <div class="modal-cont">
+                        <div class="modal-hdr">
+                            <span class="clseBtnc" id="clseBtn">&times;</span>
+                            <div class="aut-h">
+                                <h2> Authentication Check </h2>
+                            </div>
+                        </div>
+                        
+                        <div class="modal1-bdy">
+                            <div class="img-aut">
+                                <div class="vid-con">
+                                    <div id="vid-vid" class="vid-vid"> </div>
+
+                                    <div class="capbtn">
+                                            <input type="button" id="capbt" value="capture">
+                                    </div>
+                                </div>
+
+                                <div class="img-con">
+                                    <div id="result"> </div>
+                                </div>
+                                
+                            </div>
+
+                            <div id="modal2"> 
+                                <div id="failed-auth">
+                                    <h4 class="fnl-auth"> Authentication Failed, Human not recognized </h4>
+                                    <input type="button" value="Retry" id="retry" class="fnl-btn">
+                                    <a href="{% url 'homepage:home' %}"><input type="button" value="Quit" id="quit"class="fnl-btn"></a>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="modal1-ftr">
+                            <form action="{% url 'homepage:authusr' %}" id="aut-form" method="POST" enctype="multipart/form-data">
+                                {% csrf_token %}
+
+                                <input class="api-imgs" type="text" id="aut-img2" name="img2" value="" required/>
+                                <input class="api-imgs" type="text" id="aut-img1" name="username" value="" required/>
+                                
+                                
+                                <div class="modal1-ftr-frm">
+                                    <input id="aut-sub" class="aut-sub" type="submit" value="submit" required/>
+                                </div>
+                                
+                            </form>
+                        </div>
+                        
+                    </div>
+                </div>
+                        
+            </div>
+
+        </div>
+
+        <script type="text/javascript" src="{% static 'homepage/js/webcam.js' %}"></script>
+        <script type="text/javascript" src="{% static 'homepage/js/main.js' %}"></script>
+    </body>
+</html>

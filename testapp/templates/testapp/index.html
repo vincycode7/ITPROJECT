@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title> Home </title>
+        <link rel="stylesheet" type="text/css" href="{% static 'homepage/css/bootstrap.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'homepage/css/style.css' %}">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+    </head>
+
+    <body>
+        <div class="container">
+
+            <nav class="row nav-lst">
+                <ul>
+                    <li> <a href="{% url 'homepage:home' %}"> Home </a> </li>
+                    <li> <a href="{% url 'testapp:upload' %}"> Test App </a> </li>
+                    <li> <a href="{% url 'testapp:imgchker' %}"> Help </a> </li>
+                </ul>
+            </nav>
+
+            <div class="image">
+                <img src="{% static 'homepage/images/images.jpeg' %}" class="clip">
+            </div>
+            
+            {{ data }}
+            <script type="text/javascript" src="{% static 'testapp/js/main.js' %}"> </script>
+
+        </div>
+    </body>
+</html>
