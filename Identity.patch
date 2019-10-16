@@ -1,0 +1,10 @@
+--- /usr/local/lib/python3.6/dist-packages/torch/nn/modules/linear.py
++++ /usr/local/lib/python3.6/dist-packages/torch/nn/modules/linear.py
+@@ -17,6 +17,7 @@
+     def __init__(self, *args, **kwargs):
+         super(Identity, self).__init__()
+ 
++    @weak_script_method
+     def forward(self, input):
+         return input
+ 
