@@ -52,7 +52,7 @@ class test_model:
     cnn.load_state_dict(resnet['state_dict'])
     self.cnn = cnn
 
-   # return cnn, fc
+fc
 
   def load_imgs(self, url_img_1=None, url_img_2=None):
     
