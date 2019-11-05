@@ -16,11 +16,11 @@ class test_model:
   def __init__(self, model=None):
     self.load_model(model)
 
-  def predict(self,data):
+  def predict(self):
     model = self.model
     model.cpu().eval()
     
-    data = data.cpu()
+    data = self.data.cpu()
 
     # forward pass: compute predicted outputs by passing inputs to the model
     output = model(data)
@@ -56,4 +56,4 @@ class test_model:
     img_d = np.copy(con_img.transpose((0, 3, 1, 2)))  
 
     img_d = tch.tensor(img_d.squeeze(0).astype('float32'))
-    self.data = img_d
+    self.data = img_d.unsqueeze(0)

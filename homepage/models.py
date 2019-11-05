@@ -21,11 +21,10 @@ class usr_Image(models.Model):
     correct_prediction = models.IntegerField(null=True)
 
     def __str__(self):
-        return  self.image2.url.split("/")[-1]
+        return self.image2.url.split("/")[-1]
 
 class face_model(models.Model):
-    fc_model = models.FileField(upload_to="face_model/", null=True)
-    cnn_model = models.FileField(upload_to="face_model/", null=True)
+    model = models.FileField(upload_to="face_model/", null=True)
 
     def __str__(self):
-        return  self.cnn_model.url.split("/")[-1] + self.fc_model.url.split("/")[-1]
+        return self.model.url.split("/")[-1]

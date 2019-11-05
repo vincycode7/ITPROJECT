@@ -93,13 +93,12 @@ def authusr(request):
     try:
         #get cnn and fc pathsgit
         mods = face_model.objects.all()
-        cnn = mods[0].cnn_model
-        fc = mods[0].fc_model
+        model = mods[0].model
 
         #instatiat the face detector
-        face_dec = test_model(cnn, fc)
+        face_dec = test_model(model)
     except:
-        raise Exception('model found')
+        raise Exception('model not found')
 
     #save image
     filename = request.POST["username"] + "_" +str(current_date) + "_" + current_time + "." + ext
